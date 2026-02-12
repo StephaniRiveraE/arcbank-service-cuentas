@@ -120,7 +120,9 @@ jobs:
                             name: ${{ env.SECRET_NAME }}
                             key: ${{ env.SECRET_KEY_PASS }}
                       - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-                        value: "update"
+                        value: "none"
+                      - name: SPRING_FLYWAY_BASELINE_ON_MIGRATE
+                        value: "false"
                     livenessProbe:
                       httpGet:
                         path: /actuator/health/liveness
